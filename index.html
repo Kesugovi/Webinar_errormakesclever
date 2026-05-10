@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExecutiveScale - Scale Your Authority to Hero Status</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #002b5a;
+            --primary-blue: #005eb5;
+            --light-blue: #5c9efe;
+            --accent-gradient-start: #002b5a;
+            --accent-gradient-end: #004182;
+            --text-dark: #1c1b1b;
+            --text-secondary: #424750;
+            --bg-light: #fcf9f8;
+            --bg-form: #f0edec;
+            --border-color: #c3c6d2;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* HERO SECTION */
+        .hero-section {
+            background: linear-gradient(134.99deg, #fcf9f8 0%, #f0edec 100%);
+            padding: 80px 24px;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--light-blue);
+            padding: 5.5px 12px;
+            border-radius: 12px;
+            width: fit-content;
+        }
+
+        .badge-text {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            color: #00356b;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(36px, 5vw, 48px);
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--primary-dark);
+            letter-spacing: -0.96px;
+        }
+
+        .hero-description {
+            font-size: clamp(16px, 2vw, 18px);
+            color: var(--text-secondary);
+            line-height: 1.6;
+            max-width: 512px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 22px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            border-radius: 2px;
+            font-size: 15px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-dark);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #001a3a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 43, 90, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-blue);
+            border: 1px solid var(--primary-blue);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(0, 94, 181, 0.05);
+        }
+
+        .hero-image {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            height: 500px;
+            background: var(--bg-form);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ACHIEVEMENTS SECTION */
+        .achievements-section {
+            background-color: var(--white);
+            padding: 80px 24px 128px;
+        }
+
+        .achievements-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 64px;
+        }
+
+        .section-header {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .section-title {
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(28px, 4vw, 32px);
+            font-weight: 700;
+            color: var(--primary-dark);
+            letter-spacing: -0.32px;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .achievement-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .achievement-icon {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .achievement-number {
+            font-family: 'Manrope', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            line-height: 1.3;
+            margin-top: 8px;
+        }
+
+        .achievement-description {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* AUDIT BANNER SECTION */
+        .audit-section {
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            background: linear-gradient(135deg, var(--accent-gradient-start) 0%, var(--accent-gradient-end) 100%);
+            border-radius: 16px;
+            padding: 64px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .audit-content {
+            display: flex;
+            flex-direction: column;
+            gap: 14.8px;
+            max-width: 576px;
+        }
+
+        .audit-badge {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: 2px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            width: fit-content;
+            text-transform: uppercase;
+        }
+
+        .audit-title {
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.1;
+            letter-spacing: -0.96px;
+        }
+
+        .audit-description {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .audit-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            backdrop-filter: blur(2px);
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .audit-price {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.1;
+        }
+
+        .audit-label {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+        }
+
+        .btn-audit {
+            background-color: var(--white);
+            color: var(--primary-dark);
+            padding: 16px 40px;
+            margin-top: 8px;
+        }
+
+        .btn-audit:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* FORM SECTION */
+        .form-section {
+            background-color: var(--bg-light);
+            padding: 128px 24px 80px;
+        }
+
+        .form-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .form-left {
+            background: var(--white);
+            padding: 64px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            justify-content: flex-start;
+        }
+
+        .form-right {
+            background: var(--bg-form);
+            padding: 64px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .form-title {
+            font-family: 'Manrope', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            letter-spacing: -0.32px;
+        }
+
+        .form-description {
+            color: var(--text-secondary);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .form-benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .benefit-icon {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .benefit-text {
+            font-size: 16px;
+            color: var(--text-dark);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8.5px;
+        }
+
+        .form-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .form-input,
+        .form-select {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 2px;
+            padding: 15px 13px;
+            font-size: 16px;
+            font-family: inherit;
+            color: var(--text-dark);
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input::placeholder,
+        .form-select {
+            color: #6b7280;
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(0, 94, 181, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .btn-submit {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 16px;
+            margin-top: 16px;
+            width: 100%;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .btn-submit:hover {
+            background-color: #001a3a;
+        }
+
+        .btn-submit:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* TESTIMONIALS SECTION */
+        .testimonials-section {
+            background-color: var(--white);
+            padding: 80px 24px;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 64px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .testimonial-stars {
+            display: flex;
+            gap: 4px;
+        }
+
+        .star-icon {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            font-style: italic;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background-color: #e5e2e1;
+            flex-shrink: 0;
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .author-title {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        /* FAQ SECTION */
+        .faq-section {
+            background-color: var(--bg-light);
+            padding: 80px 24px;
+        }
+
+        .faq-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 48px;
+        }
+
+        .faq-header {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-items {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-family: 'Manrope', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .faq-answer {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ALERTS */
+        .alert {
+            padding: 12px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-top: 12px;
+            display: none;
+        }
+
+        .alert.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .alert.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .hero-image {
+                height: 300px;
+            }
+
+            .audit-section {
+                grid-template-columns: 1fr;
+                padding: 48px 24px;
+                gap: 32px;
+            }
+
+            .form-container {
+                grid-template-columns: 1fr;
+            }
+
+            .form-left,
+            .form-right {
+                padding: 48px 24px;
+            }
+
+            .faq-container {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section,
+            .achievements-section,
+            .form-section,
+            .testimonials-section,
+            .faq-section {
+                padding: 40px 16px;
+            }
+
+            .form-left,
+            .form-right {
+                padding: 32px 16px;
+            }
+
+            .audit-section {
+                padding: 32px 16px;
+                gap: 24px;
+            }
+
+            .hero-title {
+                font-size: 28px;
+            }
+
+            .section-title,
+            .form-title {
+                font-size: 24px;
+            }
+
+            .audit-title {
+                font-size: 32px;
+            }
+        }
+
+        /* LOADING & ANIMATIONS */
+        .form-submit-loader {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 3px solid var(--white);
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .button-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="badge">
+                    <span class="badge-text">Premium Growth Partner</span>
+                </div>
+                <h1 class="hero-title">Scale Your Authority to Hero Status.</h1>
+                <p class="hero-description">We engineer your personal brand on LinkedIn. Move from zero visibility to an industry leader with our data-driven growth framework.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToForm()">Book a Growth Strategy</button>
+                    <button class="btn btn-secondary">View Case Studies</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://www.figma.com/api/mcp/asset/e666a6fc-b7a8-4f07-a904-b04ab5336731" alt="Analytics Dashboard">
+            </div>
+        </div>
+    </section>
+
+    <!-- ACHIEVEMENTS SECTION -->
+    <section class="achievements-section">
+        <div class="achievements-container">
+            <div class="section-header">
+                <h2 class="section-title">Milestones of Mastery</h2>
+                <p class="section-subtitle">The quantitative proof of our qualitative influence strategies.</p>
+            </div>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <img src="https://www.figma.com/api/mcp/asset/6715c6d0-7159-4e85-9388-7d18aaade280" alt="Icon" class="achievement-icon">
+                    <div class="achievement-number">+400%</div>
+                    <p class="achievement-description">Average increase in profile impressions within the first 90 days.</p>
+                </div>
+                <div class="achievement-card">
+                    <img src="https://www.figma.com/api/mcp/asset/fa189215-7dd2-497a-9268-30b36695bfc9" alt="Icon" class="achievement-icon">
+                    <div class="achievement-number">50k+</div>
+                    <p class="achievement-description">Combined follower growth across our current client portfolio.</p>
+                </div>
+                <div class="achievement-card">
+                    <img src="https://www.figma.com/api/mcp/asset/3d86888d-6169-482f-bbda-cf4c892a36d9" alt="Icon" class="achievement-icon">
+                    <div class="achievement-number">1,200+</div>
+                    <p class="achievement-description">Viral posts crafted and optimized for executive engagement.</p>
+                </div>
+                <div class="achievement-card">
+                    <img src="https://www.figma.com/api/mcp/asset/a395a444-82dd-44ea-a208-e4e23b075a47" alt="Icon" class="achievement-icon">
+                    <div class="achievement-number">100%</div>
+                    <p class="achievement-description">Client satisfaction rate for brand positioning and authority.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AUDIT BANNER SECTION -->
+    <section class="achievements-section" style="padding: 0 24px;">
+        <div class="audit-section">
+            <div class="audit-content">
+                <div class="audit-badge">Limited Time Offer</div>
+                <h2 class="audit-title">Get a Comprehensive LinkedIn Audit for only ₹1.</h2>
+                <p class="audit-description">Unlock a 15-minute diagnostic breakdown of your current profile, content gaps, and untapped authority opportunities.</p>
+            </div>
+            <div class="audit-card">
+                <div class="audit-price">₹1</div>
+                <p class="audit-label">One-time payment</p>
+                <a href="https://payments.cashfree.com/forms/getaudit" target="_blank" class="btn btn-audit">Claim Your Audit Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORM SECTION -->
+    <section class="form-section" id="formSection">
+        <div class="form-container">
+            <div class="form-left">
+                <h2 class="form-title">Initiate Your Growth Journey</h2>
+                <p class="form-description">Tell us about your professional goals. Our team will review your application and reach out within 24 hours to schedule a consultation.</p>
+                <div class="form-benefits">
+                    <div class="benefit-item">
+                        <img src="https://www.figma.com/api/mcp/asset/a75c2fe8-07c9-441a-b27e-93bac481db32" alt="Check" class="benefit-icon">
+                        <span class="benefit-text">Data-backed strategy custom for your niche.</span>
+                    </div>
+                    <div class="benefit-item">
+                        <img src="https://www.figma.com/api/mcp/asset/a75c2fe8-07c9-441a-b27e-93bac481db32" alt="Check" class="benefit-icon">
+                        <span class="benefit-text">Dedicated content specialist and account manager.</span>
+                    </div>
+                    <div class="benefit-item">
+                        <img src="https://www.figma.com/api/mcp/asset/a75c2fe8-07c9-441a-b27e-93bac481db32" alt="Check" class="benefit-icon">
+                        <span class="benefit-text">Weekly performance tracking and ROI reports.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-right">
+                <form id="contactForm" onsubmit="submitForm(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="email">Work Email</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="john@company.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="+91 9876543210" required>
+                    </div>
+                    <button type="submit" class="btn btn-submit" id="submitBtn">
+                        <span class="button-content">
+                            <span id="submitText">Submit Application</span>
+                            <span class="form-submit-loader" id="submitLoader"></span>
+                        </span>
+                    </button>
+                    <div id="formAlert" class="alert"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials-section">
+        <div class="testimonials-container">
+            <div class="section-header">
+                <h2 class="section-title">Voice of Authority</h2>
+                <p class="section-subtitle">Trusted by Founders, VCs, and Executives worldwide.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <img src="https://www.figma.com/api/mcp/asset/409e8e88-8a91-4829-a2ba-8070ff31571b" alt="Star" class="star-icon">
+                        <img src="https://www.figma.com/api/mcp/asset/409e8e88-8a91-4829-a2ba-8070ff31571b" alt="Star" class="star-icon">
+                        <img src="https://www.figma.com/api/mcp/asset/409e8e88-8a91-4829-a2ba-8070ff31571b" alt="Star" class="star-icon">
+                        <img src="https://www.figma.com/api/mcp/asset/409e8e88-8a91-4829-a2ba-8070ff31571b" alt="Star" class="star-icon">
+                        <img src="https://www.figma.com/api/mcp/asset/409e8e88-8a91-4829-a2ba-8070ff31571b" alt="Star" class="star-icon">
+                    </div>
+                    <p class="testimonial-text">"ExecutiveScale transformed my LinkedIn from a digital resume to a lead-generation machine. My inbound requests have tripled."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <div class="author-name">Sarah Jenkins</div>
+                            <div class="author-title">Tech Founder</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <img src="https://www.figma.com/api/mcp/asset/409e8e88-8a91-4829-a2ba-8070ff31571b" alt="Star" class="star-icon">
+                        <img src="https://www.figma.com/api/mcp/asset/409e8e88-8a91-4829-a2ba-8070ff31571b" alt="Star" class="star-icon">
+                        <img src="https://www.figma.com/api/mcp/asset/409e8e88-8a91-4829-a2ba-8070ff31571b" alt="Star" class="star-icon">
+                        <img src="https://www.figma.com/api/mcp/asset/409e8e88-8a91-4829-a2ba-8070ff31571b" alt="Star" class="star-icon">
+                        <img src="https://www.figma.com/api/mcp/asset/409e8e88-8a91-4829-a2ba-8070ff31571b" alt="Star" class="star-icon">
+                    </div>
+                    <p class="testimonial-text">"The strategic depth they bring is unmatched. They actually understand corporate dynamics and high-level messaging."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <div class="author-name">Marcus Thorne</div>
+                            <div class="author-title">Venture Partner</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <img src="https://www.figma.com/api/mcp/asset/409e8e88-8a91-4829-a2ba-8070ff31571b" alt="Star" class="star-icon">
+                        <img src="https://www.figma.com/api/mcp/asset/409e8e88-8a91-4829-a2ba-8070ff31571b" alt="Star" class="star-icon">
+                        <img src="https://www.figma.com/api/mcp/asset/409e8e88-8a91-4829-a2ba-8070ff31571b" alt="Star" class="star-icon">
+                        <img src="https://www.figma.com/api/mcp/asset/409e8e88-8a91-4829-a2ba-8070ff31571b" alt="Star" class="star-icon">
+                        <img src="https://www.figma.com/api/mcp/asset/409e8e88-8a91-4829-a2ba-8070ff31571b" alt="Star" class="star-icon">
+                    </div>
+                    <p class="testimonial-text">"Finally, a service that doesn't just post 'fluff'. These guys understand authority engineering and personal branding."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <div class="author-name">David Chen</div>
+                            <div class="author-title">CMO, Fintech</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="faq-header">
+                <h2 class="section-title">Common Inquiries</h2>
+                <p class="section-subtitle">Everything you need to know about scaling your executive presence.</p>
+            </div>
+            <div class="faq-items">
+                <div class="faq-item">
+                    <h3 class="faq-question">How soon can I expect to see results?</h3>
+                    <p class="faq-answer">While profile optimization shows immediate impact, the compounding effect of our content and network strategy typically reaches peak momentum between 60 to 90 days.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Do I need to write my own content?</h3>
+                    <p class="faq-answer">No. Our ghostwriting team interviews you monthly to capture your voice, insights, and unique expertise, translating them into high-performing LinkedIn posts.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Is this service safe for my LinkedIn account?</h3>
+                    <p class="faq-answer">Absolutely. We operate strictly within LinkedIn's terms of service. We do not use prohibited automation; our growth is driven by organic engagement and quality content.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // FORM SUBMISSION
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx8AuYS7nSHIuNhlN9MdkU7VKUKoRtP-brpY8WW6emL5figRXHK8LLdqAzj-H20nqt7/exec';
+
+        function submitForm(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const submitBtn = document.getElementById('submitBtn');
+            const submitText = document.getElementById('submitText');
+            const submitLoader = document.getElementById('submitLoader');
+            const formAlert = document.getElementById('formAlert');
+
+            // Validation
+            if (!name || !email || !phone) {
+                showAlert('Please fill in all fields', 'error');
+                return;
+            }
+
+            if (!validateEmail(email)) {
+                showAlert('Please enter a valid email address', 'error');
+                return;
+            }
+
+            if (!validatePhone(phone)) {
+                showAlert('Please enter a valid phone number', 'error');
+                return;
+            }
+
+            // Disable button and show loader
+            submitBtn.disabled = true;
+            submitText.textContent = 'Submitting...';
+            submitLoader.style.display = 'inline-block';
+
+            // Build fetch URL
+            const params = new URLSearchParams({ name, email, phone });
+            const url = SCRIPT_URL + '?' + params.toString();
+
+            // Fetch with GET and no-cors
+            fetch(url, { 
+                method: 'GET',
+                mode: 'no-cors'
+            })
+            .then(() => {
+                // Success - regardless of response
+                showSuccess();
+                document.getElementById('contactForm').reset();
+            })
+            .catch(() => {
+                // Error
+                showError();
+            })
+            .finally(() => {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitText.textContent = 'Submit Application';
+                submitLoader.style.display = 'none';
+            });
+        }
+
+        function showSuccess() {
+            const formAlert = document.getElementById('formAlert');
+            formAlert.textContent = '✓ Application submitted successfully! We\'ll reach out within 24 hours.';
+            formAlert.className = 'alert success';
+            formAlert.style.display = 'block';
+            
+            // Scroll to alert
+            formAlert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function showError() {
+            const formAlert = document.getElementById('formAlert');
+            formAlert.textContent = '✗ Error submitting form. Please try again.';
+            formAlert.className = 'alert error';
+            formAlert.style.display = 'block';
+        }
+
+        function showAlert(message, type) {
+            const formAlert = document.getElementById('formAlert');
+            formAlert.textContent = message;
+            formAlert.className = 'alert ' + type;
+            formAlert.style.display = 'block';
+        }
+
+        function validateEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function validatePhone(phone) {
+            return /^[\d\s\-\+\(\)]{7,}$/.test(phone);
+        }
+
+        function scrollToForm() {
+            document.getElementById('formSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Smooth scroll for anchor links
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
